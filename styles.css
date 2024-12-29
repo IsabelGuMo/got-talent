@@ -1,0 +1,154 @@
+ @keyframes move_wave {
+    0% {
+        transform: translateX(0) translateZ(0) scaleY(1)
+    }
+    50% {
+        transform: translateX(-25%) translateZ(0) scaleY(0.55)
+    }
+    100% {
+        transform: translateX(-50%) translateZ(0) scaleY(1)
+    }
+}
+h1 {
+    font-family: "Miltonian", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 50px;
+    color: #8174A0;
+ }
+
+ p {
+    font-weight: 400;
+    font-style: normal;
+    font-size: 20px;
+    color: #A888B5;
+ }
+
+ .text-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 99;
+ }
+
+.waveWrapper {
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    margin: auto;
+}
+.waveWrapperInner {
+    position: absolute;
+    width: 100%;
+    overflow: hidden;
+    height: 100%;
+    bottom: -1px;
+    background-image: linear-gradient(to top, #EFB6C8 20%, #FFD2A0 80%);
+}
+.bgTop {
+    z-index: 15;
+    opacity: 0.5;
+}
+.bgMiddle {
+    z-index: 10;
+    opacity: 0.75;
+}
+.bgBottom {
+    z-index: 5;
+}
+.wave {
+    position: absolute;
+    left: 0;
+    width: 200%;
+    height: 100%;
+    background-repeat: repeat no-repeat;
+    background-position: 0 bottom;
+    transform-origin: center bottom;
+}
+.waveTop {
+    background-size: 50% 100px;
+}
+.waveAnimation .waveTop {
+  animation: move-wave 3s;
+   -webkit-animation: move-wave 3s;
+   -webkit-animation-delay: 1s;
+   animation-delay: 1s;
+}
+.waveMiddle {
+    background-size: 50% 120px;
+}
+.waveAnimation .waveMiddle {
+    animation: move_wave 10s linear infinite;
+}
+.waveBottom {
+    background-size: 50% 100px;
+}
+.waveAnimation .waveBottom {
+    animation: move_wave 15s linear infinite;
+}
+
+
+.balloon {
+    font-family: "Miltonian", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 30px;
+    color: #8174A0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    width:60px;
+    height:70px;
+    background:#FFF9BF;
+    border-radius:80%;
+    position:relative;
+    margin:10px 15px;
+    transition:transform 0.5s ease;
+    z-index:10;
+    animation:balloons 4s ease-in-out infinite;
+    transform-origin:bottom center;
+}
+
+@keyframes balloons {
+  0%,100%{ transform:translateY(0) rotate(-4deg); }
+  50%{ transform:translateY(-25px) rotate(4deg); }
+}
+
+.balloons-container {
+    display: flex;
+    padding-top: 30%;
+}
+
+.balloon:before {
+  content:"▲";
+  font-size:20px;
+  color:#FFF9BF;
+  display:block;
+  text-align:center;
+  width:100%;
+  position:absolute;
+  bottom:-12px;
+  z-index:-100;
+}
+
+.balloon:after {
+ display:inline-block; top:75px;
+  position:absolute;
+  height:250px;
+  width:1px;
+  margin:0 auto;
+  content:"";
+  background:rgba(0,0,0,0.2); 
+}
+
+.balloon:nth-child(2){ background:hsl(59,50%,58%); animation-duration:4.5s; }
+.balloon:nth-child(2):before { color:hsl(59,30%,52%);  }
+
+.balloon:nth-child(3){ background:#F0C1E1; animation-duration:4.5s; }
+.balloon:nth-child(3):before { color:#CB9DF0;  }
+
